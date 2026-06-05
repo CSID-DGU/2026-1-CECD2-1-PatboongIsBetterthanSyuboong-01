@@ -1,0 +1,9 @@
+{
+  "packageManager": "yarn@4.11.0",
+  "scripts": {
+    "dev": "cd bit-ai && yarn dev",
+    "build": "cd bit-ai && yarn build",
+    "start": "cd bit-ai && yarn start",
+    "lint": "cd bit-ai && yarn lint"
+  }
+}
