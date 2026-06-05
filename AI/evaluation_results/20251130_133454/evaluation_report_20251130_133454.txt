@@ -1,0 +1,124 @@
+================================================================================
+모델 평가 리포트: Dual_Branch
+================================================================================
+
+이진 분류 평가 (정상 vs 이상)
+--------------------------------------------------------------------------------
+ROC-AUC:     0.5000
+PR-AUC:      0.5000
+Accuracy:    0.5000
+Precision:   0.5000
+Recall:      1.0000
+F1-Score:    0.6667
+Threshold:   0.010000
+
+Confusion Matrix:
+  TN=0, FP=1362
+  FN=0, TP=1362
+
+다중 클래스 평가 (각 질병별)
+--------------------------------------------------------------------------------
+
+[good]
+  샘플 수: 1362
+  ROC-AUC: 0.5000
+  PR-AUC: 0.5000
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[pneumonia]
+  샘플 수: 162
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0595
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[tuberculosis]
+  샘플 수: 45
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0165
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_3]
+  샘플 수: 37
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0136
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_4]
+  샘플 수: 89
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0327
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_5]
+  샘플 수: 68
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0250
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_6]
+  샘플 수: 54
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0198
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_7]
+  샘플 수: 513
+  ROC-AUC: 0.5000
+  PR-AUC: 0.1883
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_8]
+  샘플 수: 117
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0430
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_9]
+  샘플 수: 17
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0062
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_10]
+  샘플 수: 19
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0070
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_11]
+  샘플 수: 52
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0191
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000
+
+[class_12]
+  샘플 수: 189
+  ROC-AUC: 0.5000
+  PR-AUC: 0.0694
+  Precision: 0.0000
+  Recall: 0.0000
+  F1-Score: 0.0000

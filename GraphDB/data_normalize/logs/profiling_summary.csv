@@ -1,0 +1,15 @@
+﻿step,rows,note
+load_excel,8206,
+column_names_fixed,8206,
+after_id_columns,8206,
+full_duplicate_drop,7711,before=8206 removed=495 is_duplicate_row_true=495
+nodes_visit,1070,
+nodes_diagnosis,9,
+nodes_prescription_master,880,
+nodes_order_line,6809,fact_rows_after_dedup=7711
+nodes_special_note,1025,
+nodes_note_mention,4099,
+rels_note_has_mention,4099,
+rels_diagnosis_has_mention,2823,
+rels_prescription_has_mention,17547,
+validation_ok,0,ok

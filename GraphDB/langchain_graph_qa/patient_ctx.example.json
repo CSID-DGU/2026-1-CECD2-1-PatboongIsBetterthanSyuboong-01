@@ -1,0 +1,16 @@
+{
+  "patient_id": "530524502",
+  "symptoms": "E11",
+  "history": "E11(제2형 당뇨병) 관련 내원·처방 테스트용 요약",
+  "top_rx": [
+    {
+      "내원번호": "530524502",
+      "처방시퀀스": "1",
+      "처방코드": "AAA",
+      "처방명": "가정간호의뢰",
+      "prescription_code": "AAA"
+    }
+  ],
+  "similar_outcomes": "테스트용 샘플",
+  "mention_links": []
+}

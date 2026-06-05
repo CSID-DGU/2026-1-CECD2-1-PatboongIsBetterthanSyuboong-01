@@ -1,0 +1,15 @@
+﻿step,rows,note
+load_test_csv,1407,
+column_names_fixed,1407,
+after_id_columns,1407,
+full_duplicate_drop,1338,before=1407 removed=69 is_duplicate_row_true=69
+nodes_visit,179,
+nodes_diagnosis,8,
+nodes_prescription_master,431,
+nodes_order_line,1178,fact_rows_after_dedup=1338
+nodes_special_note,174,
+nodes_note_mention,719,
+rels_note_has_mention,719,
+rels_diagnosis_has_mention,452,
+rels_prescription_has_mention,2857,
+validation_ok,0,ok

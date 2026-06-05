@@ -1,0 +1,284 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #11131f;
+  border-radius: 16px;
+  padding: 16px;
+  color: #f1f3ff;
+  /* 내원 기록이 많아도 카드 전체가 페이지를 밀지 않도록 높이 상한 */
+  max-height: min(52vh, 480px);
+  min-height: 0;
+  box-shadow: 0 8px 24px rgba(9, 12, 28, 0.35);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.yearNav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(241, 243, 255, 0.8);
+}
+
+.arrowButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid rgba(241, 243, 255, 0.1);
+  background: transparent;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.arrowButton:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.arrowButton:not(:disabled):hover {
+  background: rgba(241, 243, 255, 0.08);
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
+}
+
+.content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: rgba(241, 243, 255, 0.18);
+  border-radius: 3px;
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.item {
+  position: relative;
+  padding: 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(35, 38, 58, 0.85), rgba(23, 25, 43, 0.9));
+  border: 1px solid rgba(88, 95, 137, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(145, 153, 185, 0.08);
+}
+
+.itemClickable {
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.itemClickable:hover {
+  border-color: rgba(79, 107, 255, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(79, 107, 255, 0.2);
+}
+
+.itemClickable:focus-visible {
+  outline: 2px solid rgba(79, 107, 255, 0.6);
+  outline-offset: 2px;
+}
+
+.item:before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  background: #4f6bff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(79, 107, 255, 0.2);
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f8f9ff;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(241, 243, 255, 0.75);
+}
+
+.tag {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(79, 107, 255, 0.15);
+  border: 1px solid rgba(79, 107, 255, 0.4);
+  color: #9dabff;
+  font-weight: 500;
+}
+
+.detail {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(241, 243, 255, 0.85);
+  white-space: pre-line;
+}
+
+.meta {
+  margin-top: 12px;
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: rgba(241, 243, 255, 0.6);
+}
+
+.section {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(241, 243, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.pillCount {
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(241, 243, 255, 0.12);
+  border: 1px solid rgba(241, 243, 255, 0.16);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.chipList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(79, 107, 255, 0.18);
+  border: 1px solid rgba(79, 107, 255, 0.32);
+  color: #d7dcff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.chipCode {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.chipMeta {
+  font-size: 11px;
+  color: rgba(241, 243, 255, 0.7);
+}
+
+.emptySection {
+  font-size: 12px;
+  color: rgba(241, 243, 255, 0.4);
+  padding-left: 2px;
+}
+
+.statusRow {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+  color: rgba(241, 243, 255, 0.6);
+}
+
+.statusLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(241, 243, 255, 0.2);
+  background: transparent;
+}
+
+.emptyState,
+.placeholder,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(241, 243, 255, 0.6);
+  font-size: 14px;
+  text-align: center;
+  padding: 24px;
+}
+
+.error {
+  color: #ff9b9b;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton {
+  height: 96px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+

@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "timestamp": "2026-05-07T17:45:34",
+    "model_version": "ae_squid_v1",
+    "embedding_version": "mock_pca_v1",
+    "embedding_dim": 768,
+    "similarity_weights": "{\"global\": 1.0}",
+    "view_filter": "(all)"
+  },
+  "metrics": {
+    "n_total_cases": 205,
+    "n_evaluated": 174,
+    "n_no_finding": 31,
+    "n_near_duplicates": 6,
+    "hit_at_k": {
+      "1": 0.7183908045977011,
+      "3": 0.9425287356321839,
+      "5": 0.9482758620689655,
+      "10": 0.9885057471264368,
+      "20": 1.0
+    },
+    "precision_at_k": {
+      "1": 0.7183908045977011,
+      "3": 0.7222222222222229,
+      "5": 0.7344827586206888,
+      "10": 0.7396551724137936,
+      "20": 0.7454022988505753
+    },
+    "mrr": 0.827744708994709,
+    "map": 0.7532172463846324,
+    "top1_accuracy_any_match": 0.603448275862069,
+    "top3_accuracy_any_match": 0.9597701149425287,
+    "per_disease_recall": {
+      "lung_opacity": {
+        "n": 119,
+        "top1": 0.5630252100840336,
+        "top3": 0.9915966386554622
+      },
+      "enlarged_cardiomediastinum": {
+        "n": 107,
+        "top1": 0.2523364485981308,
+        "top3": 0.9065420560747663
+      },
+      "support_devices": {
+        "n": 100,
+        "top1": 0.11,
+        "top3": 0.81
+      },
+      "atelectasis": {
+        "n": 75,
+        "top1": 0.0,
+        "top3": 0.10666666666666667
+      },
+      "cardiomegaly": {
+        "n": 67,
+        "top1": 0.0,
+        "top3": 0.13432835820895522
+      },
+      "pleural_effusion": {
+        "n": 64,
+        "top1": 0.0,
+        "top3": 0.03125
+      },
+      "edema": {
+        "n": 43,
+        "top1": 0.0,
+        "top3": 0.023255813953488372
+      },
+      "consolidation": {
+        "n": 32,
+        "top1": 0.0,
+        "top3": 0.0
+      },
+      "pneumonia": {
+        "n": 8,
+        "top1": 0.0,
+        "top3": 0.0
+      },
+      "pneumothorax": {
+        "n": 7,
+        "top1": 0.0,
+        "top3": 0.0
+      },
+      "lung_lesion": {
+        "n": 1,
+        "top1": 0.0,
+        "top3": 0.0
+      },
+      "pleural_other": {
+        "n": 1,
+        "top1": 0.0,
+        "top3": 0.0
+      }
+    }
+  },
+  "population": {
+    "roi_severity_distribution": {
+      "full_lung": {
+        "high": 5,
+        "low": 19,
+        "medium": 181
+      },
+      "heart": {
+        "high": 1,
+        "low": 71,
+        "medium": 133
+      },
+      "left_lung": {
+        "high": 5,
+        "low": 21,
+        "medium": 179
+      },
+      "lower_left_lung": {
+        "high": 9,
+        "low": 52,
+        "medium": 144
+      },
+      "lower_right_lung": {
+        "high": 8,
+        "low": 66,
+        "medium": 131
+      },
+      "mediastinum": {
+        "high": 2,
+        "low": 100,
+        "medium": 103
+      },
+      "pleural_region": {
+        "high": 11,
+        "low": 23,
+        "medium": 171
+      },
+      "right_lung": {
+        "high": 5,
+        "low": 23,
+        "medium": 177
+      },
+      "upper_left_lung": {
+        "high": 6,
+        "low": 11,
+        "medium": 188
+      },
+      "upper_right_lung": {
+        "high": 7,
+        "low": 7,
+        "medium": 191
+      }
+    },
+    "finding_tag_distribution": {
+      "bilateral_diffuse_error": 174,
+      "pleural_region_high_error": 11,
+      "left_lower_lung_high_error": 9,
+      "right_lower_lung_high_error": 8,
+      "right_upper_lung_high_error": 7,
+      "left_upper_lung_high_error": 6,
+      "right_lung_high_error": 5,
+      "left_lung_high_error": 5,
+      "mediastinum_high_error": 2,
+      "cardiac_region_high_error": 1
+    },
+    "disease_distribution": {
+      "lung_opacity": 119,
+      "enlarged_cardiomediastinum": 107,
+      "support_devices": 100,
+      "atelectasis": 75,
+      "cardiomegaly": 67,
+      "pleural_effusion": 64,
+      "edema": 43,
+      "consolidation": 32,
+      "pneumonia": 8,
+      "pneumothorax": 7,
+      "lung_lesion": 1,
+      "pleural_other": 1
+    },
+    "view_distribution": {
+      "AP": 171,
+      "PA": 34
+    }
+  }
+}

@@ -1,0 +1,226 @@
+.container {
+  background: #444444;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.tabBar {
+  display: flex;
+  background-color: #333336;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 2px solid #374151;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #9ca3af;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  color: #e5e7eb;
+}
+
+.tab:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.activeTab {
+  color: #f3f4f6;
+  font-weight: 600;
+  border-bottom: 2px solid #2563eb;
+}
+
+.body {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: auto;
+  min-height: 0;
+}
+
+.placeholder {
+  color: #9ca3af;
+  font-size: 13px;
+  align-self: center;
+  margin: auto;
+  text-align: center;
+}
+
+.diseaseSplit {
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  min-height: 180px;
+  width: 100%;
+  min-width: 0;
+}
+
+.historyColumn {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-right: 1px solid #4b5563;
+  padding-right: 12px;
+}
+
+.diseaseColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+.columnTitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.diseaseHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+.diseaseHeaderRow .columnTitle {
+  margin-bottom: 0;
+}
+
+.applyButton {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.applyButton:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.applyButton:disabled {
+  background-color: #4b5563;
+  cursor: not-allowed;
+  color: #9ca3af;
+}
+
+.historyList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.historyRow {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  background: #3a3a3d;
+  color: #e5e7eb;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.historyRow:hover {
+  background: #434346;
+  border-color: #6b7280;
+}
+
+.historyRowSelected {
+  border-color: #2563eb;
+  background: #1e3a5f;
+  box-shadow: 0 0 0 1px #2563eb33;
+}
+
+.historyDate {
+  font-weight: 600;
+}
+
+.historyMeta {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.diseaseTableWrap {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+}
+
+.diseaseEmpty {
+  margin: 0;
+  padding: 16px;
+  font-size: 13px;
+  color: #9ca3af;
+  border: 1px dashed #4b5563;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.diseaseTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10px;
+  color: #e5e7eb;
+}
+
+.diseaseTable th {
+  padding: 6px 10px;
+  background: #374151;
+  text-align: left;
+  font-weight: 600;
+  color: #9ca3af;
+  border-bottom: 1px solid #4b5563;
+  white-space: nowrap;
+}
+
+.diseaseTable td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #374151;
+}
+
+.diseaseTable tbody tr:hover {
+  background: #374151;
+}

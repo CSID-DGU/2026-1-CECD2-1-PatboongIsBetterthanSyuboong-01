@@ -1,0 +1,304 @@
+[DATA] train.csv: 223,414개 로드 (누락 0개)
+[DATA] valid.csv: 234개 로드 (누락 0개)
+[PREPARE] Undersampling 적용 중...
+[UNDERSAMPLING] 시작...
+[UNDERSAMPLING] 클래스 분포 계산 중...
+[UNDERSAMPLING] 클래스별 양성 샘플 수: {8: 22381, 13: 116001, 5: 9040, 7: 105581, 3: 52246, 12: 19448, 0: 33376, 1: 27000, 4: 10798, 9: 86187, 2: 14783, 10: 3523, 6: 9186, 11: 6039}
+[UNDERSAMPLING] 각 샘플의 주요 클래스 식별 중...
+[UNDERSAMPLING] 진행 중: 10,000/223,414 (4.5%)
+[UNDERSAMPLING] 진행 중: 20,000/223,414 (9.0%)
+[UNDERSAMPLING] 진행 중: 30,000/223,414 (13.4%)
+[UNDERSAMPLING] 진행 중: 40,000/223,414 (17.9%)
+[UNDERSAMPLING] 진행 중: 50,000/223,414 (22.4%)
+[UNDERSAMPLING] 진행 중: 60,000/223,414 (26.9%)
+[UNDERSAMPLING] 진행 중: 70,000/223,414 (31.3%)
+[UNDERSAMPLING] 진행 중: 80,000/223,414 (35.8%)
+[UNDERSAMPLING] 진행 중: 90,000/223,414 (40.3%)
+[UNDERSAMPLING] 진행 중: 100,000/223,414 (44.8%)
+[UNDERSAMPLING] 진행 중: 110,000/223,414 (49.2%)
+[UNDERSAMPLING] 진행 중: 120,000/223,414 (53.7%)
+[UNDERSAMPLING] 진행 중: 130,000/223,414 (58.2%)
+[UNDERSAMPLING] 진행 중: 140,000/223,414 (62.7%)
+[UNDERSAMPLING] 진행 중: 150,000/223,414 (67.1%)
+[UNDERSAMPLING] 진행 중: 160,000/223,414 (71.6%)
+[UNDERSAMPLING] 진행 중: 170,000/223,414 (76.1%)
+[UNDERSAMPLING] 진행 중: 180,000/223,414 (80.6%)
+[UNDERSAMPLING] 진행 중: 190,000/223,414 (85.0%)
+[UNDERSAMPLING] 진행 중: 200,000/223,414 (89.5%)
+[UNDERSAMPLING] 진행 중: 210,000/223,414 (94.0%)
+[UNDERSAMPLING] 진행 중: 220,000/223,414 (98.5%)
+[UNDERSAMPLING] 클래스별 샘플 그룹화 중...
+[UNDERSAMPLING] 클래스별 샘플 수:
+  클래스 -1: 11,141개
+  클래스 0: 21,531개
+  클래스 1: 21,368개
+  클래스 2: 11,985개
+  클래스 3: 26,990개
+  클래스 4: 9,396개
+  클래스 5: 8,607개
+  클래스 6: 8,126개
+  클래스 7: 20,529개
+  클래스 8: 22,381개
+  클래스 9: 29,611개
+  클래스 10: 3,523개
+  클래스 11: 5,916개
+  클래스 12: 15,937개
+  클래스 13: 6,373개
+[UNDERSAMPLING] 클래스당 최대 5,000개로 샘플링 중...
+[UNDERSAMPLING] 완료! 원본: 223,414개 → 샘플링 후: 73,523개
+[UNDERSAMPLING] 클래스당 최대 샘플 수: 5,000
+[PREPARE] Undersampling된 데이터셋에서 pos_weight 계산 중...
+[INFO] pos_weight: [6.245072841644287, 8.114045143127441, 9.424358367919922, 4.387089729309082, 10.0, 10.0, 10.0, 1.2763243913650513, 10.0, 2.0858306884765625, 10.0, 10.0, 9.362649917602539, 1.0072895288467407]
+Downloading: "https://download.pytorch.org/models/resnet101-cd907fc2.pth" to C:\Users\kjbdd/.cache\torch\hub\checkpoints\resnet101-cd907fc2.pth
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 171M/171M [00:03<00:00, 57.5MB/s]
+C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:640: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler() if (args.use_amp and device.type == "cuda") else None
+========================================================================
+ResNet101 멀티레이블 분류 학습 시작 (개선 버전)
+Train CSV : C:\Project\AI\mvtec_root\chest_xray\archive\train.csv
+Valid CSV : C:\Project\AI\mvtec_root\chest_xray\archive\valid.csv
+Device    : cuda
+Labels    : 14개
+Attention : 사용
+Undersampling : 사용
+Early Stopping : Patience=10
+========================================================================
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 1/20] TrainLoss 1.0198 | TrainAcc 0.669 | ValLoss 1.1707 | MicroF1 0.438 | MacroF1 0.374
+[INFO] 체크포인트 저장: C:\Project\AI\checkpoints\resnet101_multilabel_best.pt
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 2/20] TrainLoss 0.9855 | TrainAcc 0.678 | ValLoss 1.0777 | MicroF1 0.517 | MacroF1 0.393
+[INFO] 체크포인트 저장: C:\Project\AI\checkpoints\resnet101_multilabel_best.pt
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 3/20] TrainLoss 0.9567 | TrainAcc 0.696 | ValLoss 1.1171 | MicroF1 0.525 | MacroF1 0.400
+[INFO] 체크포인트 저장: C:\Project\AI\checkpoints\resnet101_multilabel_best.pt
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 4/20] TrainLoss 0.9398 | TrainAcc 0.701 | ValLoss 1.0213 | MicroF1 0.593 | MacroF1 0.430
+[INFO] 체크포인트 저장: C:\Project\AI\checkpoints\resnet101_multilabel_best.pt
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 5/20] TrainLoss 0.9258 | TrainAcc 0.706 | ValLoss 1.0591 | MicroF1 0.543 | MacroF1 0.424
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 6/20] TrainLoss 0.9142 | TrainAcc 0.711 | ValLoss 1.1183 | MicroF1 0.531 | MacroF1 0.404
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 7/20] TrainLoss 0.9032 | TrainAcc 0.716 | ValLoss 1.1560 | MicroF1 0.525 | MacroF1 0.406
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 8/20] TrainLoss 0.8936 | TrainAcc 0.720 | ValLoss 1.0898 | MicroF1 0.554 | MacroF1 0.442
+[INFO] 체크포인트 저장: C:\Project\AI\checkpoints\resnet101_multilabel_best.pt
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 9/20] TrainLoss 0.8842 | TrainAcc 0.724 | ValLoss 1.0670 | MicroF1 0.579 | MacroF1 0.456
+[INFO] 체크포인트 저장: C:\Project\AI\checkpoints\resnet101_multilabel_best.pt
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 10/20] TrainLoss 0.8757 | TrainAcc 0.728 | ValLoss 1.1612 | MicroF1 0.510 | MacroF1 0.414
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 11/20] TrainLoss 0.8653 | TrainAcc 0.730 | ValLoss 1.0204 | MicroF1 0.594 | MacroF1 0.461
+[INFO] 체크포인트 저장: C:\Project\AI\checkpoints\resnet101_multilabel_best.pt
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 12/20] TrainLoss 0.8570 | TrainAcc 0.734 | ValLoss 1.1152 | MicroF1 0.565 | MacroF1 0.440
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 13/20] TrainLoss 0.8474 | TrainAcc 0.737 | ValLoss 1.1308 | MicroF1 0.558 | MacroF1 0.438
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 14/20] TrainLoss 0.8389 | TrainAcc 0.739 | ValLoss 1.0972 | MicroF1 0.572 | MacroF1 0.437
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 15/20] TrainLoss 0.8291 | TrainAcc 0.743 | ValLoss 1.1024 | MicroF1 0.578 | MacroF1 0.443
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 16/20] TrainLoss 0.8212 | TrainAcc 0.745 | ValLoss 1.0920 | MicroF1 0.580 | MacroF1 0.449
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 17/20] TrainLoss 0.8138 | TrainAcc 0.747 | ValLoss 1.1160 | MicroF1 0.575 | MacroF1 0.443
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 18/20] TrainLoss 0.8058 | TrainAcc 0.750 | ValLoss 1.1648 | MicroF1 0.552 | MacroF1 0.425
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 19/20] TrainLoss 0.8000 | TrainAcc 0.751 | ValLoss 1.1733 | MicroF1 0.557 | MacroF1 0.432
+Train:   0%|                                                                                                                                                                          | 0/4596 [00:00<?, ?it/s]C:\Project\AI\mvtec_root\chest_xray\resnet50_multilabel.py:498: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[Epoch 20/20] TrainLoss 0.7945 | TrainAcc 0.753 | ValLoss 1.1529 | MicroF1 0.561 | MacroF1 0.430
+
+[THRESHOLD OPTIMIZATION] 최적 임계값 탐색 중...
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[THRESHOLD OPTIMIZATION] 클래스별 최적 임계값 탐색 중...
+  클래스 0: 최적 임계값 = 0.400, F1 = 0.657
+  클래스 1: 최적 임계값 = 0.200, F1 = 0.603
+  클래스 2: 최적 임계값 = 0.490, F1 = 0.580
+  클래스 3: 최적 임계값 = 0.470, F1 = 0.655
+  클래스 4: 최적 임계값 = 0.100, F1 = 0.639
+  클래스 6: 최적 임계값 = 0.500, F1 = 0.000
+  클래스 7: 최적 임계값 = 0.350, F1 = 0.840
+  클래스 8: 최적 임계값 = 0.550, F1 = 0.574
+  클래스 9: 최적 임계값 = 0.370, F1 = 0.755
+  클래스 10: 최적 임계값 = 0.700, F1 = 0.500
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 13: 최적 임계값 = 0.420, F1 = 0.862
+[INFO] 최적 임계값 저장: C:\Project\AI\classification_results\resnet101_multilabel\optimal_thresholds.json
+
+[FINAL EVALUATION] 최적 임계값으로 재평가 중...
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 13: 최적 임계값 = 0.420, F1 = 0.862
+[INFO] 최적 임계값 저장: C:\Project\AI\classification_results\resnet101_multilabel\optimal_thresholds.json
+
+[FINAL EVALUATION] 최적 임계값으로 재평가 중...
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 13: 최적 임계값 = 0.420, F1 = 0.862
+[INFO] 최적 임계값 저장: C:\Project\AI\classification_results\resnet101_multilabel\optimal_thresholds.json
+
+[FINAL EVALUATION] 최적 임계값으로 재평가 중...
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 13: 최적 임계값 = 0.420, F1 = 0.862
+[INFO] 최적 임계값 저장: C:\Project\AI\classification_results\resnet101_multilabel\optimal_thresholds.json
+
+[FINAL EVALUATION] 최적 임계값으로 재평가 중...
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[FINAL] Macro F1: 0.5075
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 13: 최적 임계값 = 0.420, F1 = 0.862
+[INFO] 최적 임계값 저장: C:\Project\AI\classification_results\resnet101_multilabel\optimal_thresholds.json
+
+[FINAL EVALUATION] 최적 임계값으로 재평가 중...
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 13: 최적 임계값 = 0.420, F1 = 0.862
+[INFO] 최적 임계값 저장: C:\Project\AI\classification_results\resnet101_multilabel\optimal_thresholds.json
+
+[FINAL EVALUATION] 최적 임계값으로 재평가 중...
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one cla  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 13: 최적 임계값 = 0.420, F1 = 0.862
+[INFO] 최적 임계값 저장: C:\Project\AI\classification_results\resnet101_multilabel\optimal_thresholds.json
+
+[FINAL EVALUATION] 최적 임계값으로 재평가 중...
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 13: 최적 임계값 = 0.420, F1 = 0.862
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 11: 최적 임계값 = 0.390, F1 = 0.123
+  클래스 12: 최적 임계값 = 0.840, F1 = 0.316
+  클래스 13: 최적 임계값 = 0.420, F1 = 0.862
+[INFO] 최적 임계값 저장: C:\Project\AI\classification_results\resnet101_multilabel\optimal_thresholds.json
+
+[FINAL EVALUATION] 최적 임계값으로 재평가 중...
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:424: UndefinedMetricWarning: Only one class is present in y_true. ROC AUC score is not defined in that case.
+  warnings.warn(
+C:\Users\kjbdd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\sklearn\metrics\_ranking.py:1046: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[FINAL] Macro F1: 0.5075
+[FINAL] Micro F1: 0.6284
+[FINAL] Sample Acc: 0.7827
+[INFO] 히스토리 저장: C:\Project\AI\classification_results\resnet101_multilabel\history.json
+========================================================================
+학습 완료! 최고 Macro F1: 0.4611 (Epoch 11)
+========================================================================

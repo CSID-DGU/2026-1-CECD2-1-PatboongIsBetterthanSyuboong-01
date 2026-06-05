@@ -1,0 +1,6 @@
+pandas>=2.0.0
+openpyxl>=3.1.0
+python-arango>=8.0.0
+scikit-learn>=1.3.0
+# embed_note_mentions.py (선택)
+# langchain-google-genai>=2.0.0

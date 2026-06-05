@@ -1,0 +1,279 @@
+.container {
+  max-width: 1200px;
+  margin: 64px auto;
+  padding: 24px;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.headerCard {
+  margin-bottom: 24px;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.headerTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.headerSubtitle {
+  margin: 0;
+  font-size: 14px;
+}
+
+.headerSubtitle strong {
+  font-weight: 600;
+}
+
+.refreshButton {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.refreshButton:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  color: #c00;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.successMessage {
+  color: #047857;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.formCard {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  background: #fff;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.createForm {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.formField {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: #111;
+}
+
+.formInput {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.createButton {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px;
+  height: 40px;
+}
+
+@media (max-width: 980px) {
+  .createForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contentCard {
+  width: 100%;
+}
+
+.loadingContainer {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.loadingIcon {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.loadingText {
+  font-size: 14px;
+  margin: 0;
+}
+
+.emptyContainer {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.emptyIcon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.emptyTitle {
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.emptySubtitle {
+  font-size: 14px;
+  margin: 0;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  padding: 12px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+  border-bottom: 1px solid #ddd;
+}
+
+.tableRow {
+  border-bottom: 1px solid #ddd;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRowEven {
+  background: #fff;
+}
+
+.tableRowOdd {
+  background: #fff;
+}
+
+.tableCell {
+  padding: 12px;
+  font-size: 14px;
+  color: #000;
+}
+
+.tableCellId {
+  font-weight: 600;
+  color: #000;
+}
+
+.tableCellName {
+  font-weight: 600;
+  color: #000;
+}
+
+.tableCellUsername {
+  color: #000;
+}
+
+.tableCellRole {
+  color: #000;
+}
+
+.roleBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.roleBadgeDefault {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.roleBadgeSuper {
+  background: #111;
+  color: #fff;
+}
+
+.roleBadgeDoctor {
+  background: #111;
+  color: #fff;
+}
+
+.roleBadgeNurse {
+  background: #111;
+  color: #fff;
+}
+
+.roleBadgeReceptionist {
+  background: #111;
+  color: #fff;
+}
+
+.deptBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #000;
+  font-size: 12px;
+}
+
+.deptEmpty {
+  color: #666;
+}
+
+.roleSelect {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.roleSelect:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+

@@ -1,0 +1,98 @@
+.sidebar {
+  width: 200px;
+  min-width: 200px;
+  background: #333336;
+  border-right: 1px solid #e2e8f0;
+  height: 100vh;
+  padding: 0 0 16px 0;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.menuItem {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.menuItem:hover {
+  background: #303032;
+}
+
+.menuItem.active {
+  background: #515154;
+}
+
+.menuItem:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.menuItem:disabled:hover {
+  background: transparent;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 180px;
+    min-width: 180px;
+  }
+
+  .menuItem {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 160px;
+    min-width: 160px;
+  }
+
+  .menuItem {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+.fullLabel {
+  display: block;
+}
+
+.shortLabel {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .sidebar {
+    width: 60px;
+    min-width: 60px;
+  }
+
+  .menuItem {
+    padding: 12px 8px;
+    font-size: 10px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .fullLabel {
+    display: none;
+  }
+
+  .shortLabel {
+    display: block;
+  }
+}

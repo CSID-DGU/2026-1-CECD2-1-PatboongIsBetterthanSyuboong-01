@@ -1,0 +1,232 @@
+.page {
+  min-height: 100vh;
+  background: #f7f8fb;
+  padding: 32px 20px 48px;
+  color: #1f2937;
+}
+
+.panel {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  display: grid;
+  gap: 18px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.description {
+  color: #4b5563;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.button {
+  width: fit-content;
+  border: 0;
+  border-radius: 8px;
+  background: #111827;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.secondaryButton {
+  width: fit-content;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondaryButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.metricItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+}
+
+.metricItem span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.metricItem strong {
+  font-size: 20px;
+}
+
+.block {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.block h2 {
+  font-size: 15px;
+}
+
+.block pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.progressWrap {
+  display: grid;
+  gap: 8px;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: #2563eb;
+  transition: width 0.2s ease;
+}
+
+.progressText {
+  font-size: 13px;
+  color: #374151;
+  font-weight: 600;
+}
+
+.errorBox {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #991b1b;
+  border-radius: 10px;
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+}
+
+.resultList {
+  display: grid;
+  gap: 12px;
+}
+
+.resultCard {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+  background: #fafafa;
+}
+
+.resultHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.successBadge,
+.errorBadge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.successBadge {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.errorBadge {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.resultSectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+}
+
+@media (max-width: 760px) {
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+}

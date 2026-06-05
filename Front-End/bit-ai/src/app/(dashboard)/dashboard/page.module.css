@@ -1,0 +1,147 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainWrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.contentArea {
+  flex: 1;
+  padding: 16px;
+  background: #5E5E61;
+  overflow: auto;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 300px 1fr 1fr;
+  gap: 16px;
+  height: 100%;
+  min-height: 600px;
+}
+
+.contentGridClinic {
+  display: grid;
+  grid-template-columns: 300px 1fr 350px;
+  gap: 16px;
+  height: 100%;
+  min-height: 600px;
+}
+
+/* 반응형 그리드 */
+@media (max-width: 1200px) {
+  .contentGrid {
+    grid-template-columns: 280px 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .contentGridClinic {
+    grid-template-columns: 280px 1fr 320px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentArea {
+    padding: 12px;
+  }
+  
+  .contentGrid {
+    grid-template-columns: 250px 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .contentGridClinic {
+    grid-template-columns: 250px 1fr 300px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contentArea {
+    padding: 8px;
+  }
+  
+  .contentGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px;
+  }
+  
+  .contentGridClinic {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contentArea {
+    padding: 4px;
+  }
+}
+
+.contentGridCertificate {
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr;
+  gap: 16px;
+  height: 100%;
+  min-height: 600px;
+}
+
+.certificateCenterColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.certificateRightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  height: 100%;
+}
+
+.clinicMiddleColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.clinicRightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.middleColumn {
+  /* Middle column styles if needed */
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

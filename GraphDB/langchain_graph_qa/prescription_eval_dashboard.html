@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>처방 평가 임시 대시보드</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f5f7fb; color: #1a1a1a; }
+    h1 { margin-bottom: 8px; }
+    .hint { color: #555; margin-bottom: 14px; }
+    .row { display: grid; grid-template-columns: repeat(4, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .card { background: #fff; border: 1px solid #e6e9ef; border-radius: 10px; padding: 12px; }
+    .label { font-size: 12px; color: #666; margin-bottom: 6px; }
+    .value { font-size: 22px; font-weight: 700; }
+    .panel { background: #fff; border: 1px solid #e6e9ef; border-radius: 10px; padding: 12px; margin-bottom: 14px; }
+    .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+    select, input[type="file"], button { padding: 7px 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border-bottom: 1px solid #eceff5; padding: 8px; text-align: left; }
+    th { background: #f8f9fc; }
+    @media (max-width: 1100px) {
+      .row { grid-template-columns: 1fr 1fr; }
+      .charts { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>처방 평가 임시 대시보드</h1>
+  <div class="hint">`prescription_eval_report*.csv` 파일을 업로드해 점수 분포와 판정 결과를 확인하세요.</div>
+
+  <div class="panel">
+    <div class="controls">
+      <input id="fileInput" type="file" accept=".csv" />
+      <label for="decisionFilter">판정 필터:</label>
+      <select id="decisionFilter">
+        <option value="ALL">전체</option>
+      </select>
+      <button id="resetBtn" type="button">필터 초기화</button>
+    </div>
+    <div class="controls">
+      <strong>평가 파라미터</strong>
+      <span id="paramHint" class="hint" style="margin:0;">CSV에서 자동으로 읽어옵니다.</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card"><div class="label">총 건수</div><div class="value" id="kpiTotal">-</div></div>
+    <div class="card"><div class="label">평균 score_total</div><div class="value" id="kpiScore">-</div></div>
+    <div class="card"><div class="label">평균 s_freq</div><div class="value" id="kpiFreq">-</div></div>
+    <div class="card"><div class="label">평균 s_similarity</div><div class="value" id="kpiSim">-</div></div>
+  </div>
+
+  <div class="charts">
+    <div class="panel">
+      <h3>판정(Decision) 분포</h3>
+      <canvas id="decisionChart"></canvas>
+    </div>
+    <div class="panel">
+      <h3>score_total 구간 분포</h3>
+      <canvas id="scoreHistChart"></canvas>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>상병코드별 평균 점수 (Top 15)</h3>
+    <canvas id="diagChart"></canvas>
+  </div>
+
+  <div class="panel">
+    <h3>낮은 score_total 샘플 (Top 20)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>내원번호</th>
+          <th>상병코드</th>
+          <th>처방코드</th>
+          <th>처방명</th>
+          <th>score_total</th>
+          <th>decision</th>
+        </tr>
+      </thead>
+      <tbody id="lowScoreTable"></tbody>
+    </table>
+  </div>
+
+  <script>
+    let allRows = [];
+    let decisionChart = null;
+    let scoreHistChart = null;
+    let diagChart = null;
+
+    const els = {
+      fileInput: document.getElementById("fileInput"),
+      decisionFilter: document.getElementById("decisionFilter"),
+      resetBtn: document.getElementById("resetBtn"),
+      paramHint: document.getElementById("paramHint"),
+      kpiTotal: document.getElementById("kpiTotal"),
+      kpiScore: document.getElementById("kpiScore"),
+      kpiFreq: document.getElementById("kpiFreq"),
+      kpiSim: document.getElementById("kpiSim"),
+      lowScoreTable: document.getElementById("lowScoreTable"),
+    };
+    let params = { w1: "", w2: "", decisionThreshold: "", rareFreqThreshold: "", aucLike: "", calibRows: "" };
+
+    function toNum(v) {
+      const n = Number(v);
+      return Number.isFinite(n) ? n : 0;
+    }
+
+    function avg(rows, key) {
+      if (!rows.length) return 0;
+      return rows.reduce((s, r) => s + toNum(r[key]), 0) / rows.length;
+    }
+
+    function destroyCharts() {
+      [decisionChart, scoreHistChart, diagChart].forEach((c) => c && c.destroy());
+    }
+
+    function render(rows) {
+      if (!rows.length) {
+        destroyCharts();
+        els.kpiTotal.textContent = "0";
+        els.kpiScore.textContent = "0.0000";
+        els.kpiFreq.textContent = "0.0000";
+        els.kpiSim.textContent = "0.0000";
+        els.lowScoreTable.innerHTML = "";
+        return;
+      }
+
+      els.kpiTotal.textContent = String(rows.length);
+      els.kpiScore.textContent = avg(rows, "score_total").toFixed(4);
+      els.kpiFreq.textContent = avg(rows, "s_freq").toFixed(4);
+      els.kpiSim.textContent = avg(rows, "s_similarity").toFixed(4);
+
+      const decisionCounts = {};
+      rows.forEach((r) => {
+        const d = r.decision || "기타";
+        decisionCounts[d] = (decisionCounts[d] || 0) + 1;
+      });
+
+      const bins = Array.from({ length: 10 }, () => 0);
+      rows.forEach((r) => {
+        const s = Math.max(0, Math.min(0.999999, toNum(r.score_total)));
+        const idx = Math.floor(s * 10);
+        bins[idx] += 1;
+      });
+
+      const diagMap = {};
+      rows.forEach((r) => {
+        const k = r["상병코드"] || "UNKNOWN";
+        if (!diagMap[k]) diagMap[k] = { sum: 0, n: 0 };
+        diagMap[k].sum += toNum(r.score_total);
+        diagMap[k].n += 1;
+      });
+      const diagSorted = Object.entries(diagMap)
+        .map(([k, v]) => ({ code: k, mean: v.sum / v.n, n: v.n }))
+        .sort((a, b) => b.mean - a.mean)
+        .slice(0, 15);
+
+      destroyCharts();
+
+      decisionChart = new Chart(document.getElementById("decisionChart"), {
+        type: "bar",
+        data: {
+          labels: Object.keys(decisionCounts),
+          datasets: [{ label: "건수", data: Object.values(decisionCounts) }],
+        },
+        options: { responsive: true, plugins: { legend: { display: false } } },
+      });
+
+      scoreHistChart = new Chart(document.getElementById("scoreHistChart"), {
+        type: "bar",
+        data: {
+          labels: ["0.0-0.1","0.1-0.2","0.2-0.3","0.3-0.4","0.4-0.5","0.5-0.6","0.6-0.7","0.7-0.8","0.8-0.9","0.9-1.0"],
+          datasets: [{ label: "건수", data: bins }],
+        },
+        options: { responsive: true, plugins: { legend: { display: false } } },
+      });
+
+      diagChart = new Chart(document.getElementById("diagChart"), {
+        type: "bar",
+        data: {
+          labels: diagSorted.map((x) => `${x.code} (${x.n})`),
+          datasets: [{ label: "평균 score_total", data: diagSorted.map((x) => x.mean) }],
+        },
+        options: {
+          indexAxis: "y",
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: { x: { min: 0, max: 1 } },
+        },
+      });
+
+      const lows = [...rows]
+        .sort((a, b) => toNum(a.score_total) - toNum(b.score_total))
+        .slice(0, 20);
+      els.lowScoreTable.innerHTML = lows.map((r) => `
+        <tr>
+          <td>${r["내원번호"] || ""}</td>
+          <td>${r["상병코드"] || ""}</td>
+          <td>${r["처방코드"] || ""}</td>
+          <td>${r["처방명"] || ""}</td>
+          <td>${toNum(r["score_total"]).toFixed(6)}</td>
+          <td>${r["decision"] || ""}</td>
+        </tr>
+      `).join("");
+    }
+
+    function applyFilterAndRender() {
+      const f = els.decisionFilter.value;
+      const filtered = f === "ALL" ? allRows : allRows.filter((r) => (r.decision || "") === f);
+      render(filtered);
+    }
+
+    function updateParamView() {
+      const ready = params.w1 !== "" || params.w2 !== "" || params.decisionThreshold !== "" || params.rareFreqThreshold !== "";
+      els.paramHint.textContent = ready
+        ? `w1=${params.w1 || "-"}, w2=${params.w2 || "-"}, decision_threshold=${params.decisionThreshold || "-"}, rare_freq_threshold=${params.rareFreqThreshold || "-"}, auc_like=${params.aucLike || "-"}, calib_rows=${params.calibRows || "-"}`
+        : "이 CSV에는 파라미터 컬럼이 없습니다. evaluate_prescription_scores.py 최신 버전으로 다시 생성하세요.";
+    }
+
+    function setParamsFromCsvRows(rows) {
+      const first = rows[0] || {};
+      params.w1 = first.eval_w1 || "";
+      params.w2 = first.eval_w2 || "";
+      params.decisionThreshold = first.eval_decision_threshold || "";
+      params.rareFreqThreshold = first.eval_rare_freq_threshold || "";
+      params.aucLike = first.eval_calibration_auc_like || "";
+      params.calibRows = first.eval_calibration_rows || "";
+      updateParamView();
+    }
+
+    function buildFilterOptions(rows) {
+      const values = [...new Set(rows.map((r) => r.decision || "기타"))];
+      els.decisionFilter.innerHTML = `<option value="ALL">전체</option>` +
+        values.map((v) => `<option value="${v}">${v}</option>`).join("");
+    }
+
+    els.fileInput.addEventListener("change", (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      Papa.parse(file, {
+        header: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+          allRows = results.data || [];
+          setParamsFromCsvRows(allRows);
+          buildFilterOptions(allRows);
+          applyFilterAndRender();
+        },
+      });
+    });
+
+    els.decisionFilter.addEventListener("change", applyFilterAndRender);
+    els.resetBtn.addEventListener("click", () => {
+      els.decisionFilter.value = "ALL";
+      applyFilterAndRender();
+    });
+    updateParamView();
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# ---------------------------------------------------------------------------
+# [필수] Python 3.9 이상 (지금 pip 오류가 난다면 거의 확실히 3.8 venv 입니다)
+#   터미널에서: python -V
+#   경로에 lib/python3.8 이면 → 아래처럼 3.10+ 로 venv 를 새로 만드세요. requirements 만으로는 해결 불가.
+#
+#   cd <프로젝트_루트>
+#   rm -rf .venv
+#   python3.11 -m venv .venv && source .venv/bin/activate
+#   pip install -U pip && pip install -r GraphDB/langchain_graph_qa/requirements.txt
+# ---------------------------------------------------------------------------
+# langchain-google-genai 최신(4.x)은 3.10+ 일 수 있음 → pip 가 알아서 호환 버전을 고릅니다.
+
+python-arango>=8.0.0
+python-dotenv>=1.0.0
+langchain-google-genai>=2.0.0
+langchain-community>=0.3.0
+# Spring Boot 연동용 FastAPI 서비스 (prescription_api.py)
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.6.0

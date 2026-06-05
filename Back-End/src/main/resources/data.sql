@@ -1,0 +1,2 @@
+-- Master disease/diagnose data is loaded by Back-End/scripts/import_master_codes.py.
+-- Keep this file empty so Spring startup does not overwrite imported prescription codes.

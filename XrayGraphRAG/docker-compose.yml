@@ -1,0 +1,55 @@
+#
+# Deprecated local-only compose file.
+# Prefer the workspace-root docker-compose.yml for the full stack:
+#   docker compose --env-file .env.docker up --build
+#
+version: "3.9"
+services:
+  arangodb:
+    image: arangodb:3.12
+    container_name: xray_arangodb
+    # ArangoDB 3.12 의 vector index 는 experimental 기능이라 별도 플래그가 필요하다.
+    # 미설정 시 우리 코드가 brute-force AQL 로 자동 fallback 하지만, case 가 늘면 느려진다.
+    command:
+      - "arangod"
+      - "--experimental-vector-index"
+    environment:
+      ARANGO_ROOT_PASSWORD: "${ARANGO_PASSWORD:-password}"
+    ports:
+      - "8529:8529"
+    volumes:
+      - arango_data:/var/lib/arangodb3
+      - arango_apps:/var/lib/arangodb3-apps
+    healthcheck:
+      test: ["CMD", "arangosh", "--server.endpoint", "http://localhost:8529",
+             "--server.password", "${ARANGO_PASSWORD:-password}", "--javascript.execute-string", "db._version()"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: xray_graph_app
+    depends_on:
+      arangodb:
+        condition: service_healthy
+    environment:
+      ARANGO_URL: "http://arangodb:8529"
+      ARANGO_DB_NAME: "xray_graph_db"
+      ARANGO_USERNAME: "root"
+      ARANGO_PASSWORD: "${ARANGO_PASSWORD:-password}"
+      EMBEDDING_DIM: "768"
+      MODEL_VERSION: "ae_squid_v1"
+      MASK_VERSION: "lung_heart_mask_v1"
+      EMBEDDING_VERSION: "mock_pca_v1"
+      STORAGE_DIR: "/app/storage"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./storage:/app/storage
+
+volumes:
+  arango_data:
+  arango_apps:

@@ -1,0 +1,17 @@
+{
+  "seed": 42,
+  "n_total": 8206,
+  "n_train": 6838,
+  "n_test": 1368,
+  "size_rule": "train=6838, test=1368, target_ratio=5:1 (test≈round(n/6))",
+  "group_col": "내원번호",
+  "n_groups": 1070,
+  "split_mode": "group_split(GroupShuffleSplit, test_size 비율=test_n/n)",
+  "excel_path": "C:\\Users\\kjbdd\\OneDrive\\바탕 화면\\Project\\BitComputer\\GraphDB\\data_normalize\\input\\20260406_상병별 처방코드 추출_특이사항 추가.xlsx",
+  "sheet": 0,
+  "output": {
+    "train_csv": "C:\\Users\\kjbdd\\OneDrive\\바탕 화면\\Project\\BitComputer\\GraphDB\\data_normalize\\train_dataset\\train.csv",
+    "test_csv": "C:\\Users\\kjbdd\\OneDrive\\바탕 화면\\Project\\BitComputer\\GraphDB\\data_normalize\\test_dataset\\test.csv",
+    "metadata_json": "C:\\Users\\kjbdd\\OneDrive\\바탕 화면\\Project\\BitComputer\\GraphDB\\data_normalize\\test_dataset\\split_metadata.json"
+  }
+}

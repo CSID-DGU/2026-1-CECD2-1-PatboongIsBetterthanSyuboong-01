@@ -1,0 +1,166 @@
+{
+  "model_name": "Dual_Branch",
+  "binary_classification": {
+    "roc_auc": 0.5,
+    "pr_auc": 0.5,
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "threshold": 0.009999998845160007,
+    "confusion_matrix": [
+      [
+        0,
+        1362
+      ],
+      [
+        0,
+        1362
+      ]
+    ],
+    "tn": 0,
+    "fp": 1362,
+    "fn": 0,
+    "tp": 1362
+  },
+  "multiclass_classification": {
+    "good": {
+      "label": 0,
+      "roc_auc": 0.5,
+      "pr_auc": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 1362
+    },
+    "pneumonia": {
+      "label": 1,
+      "roc_auc": 0.5,
+      "pr_auc": 0.05947136563876652,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 162
+    },
+    "tuberculosis": {
+      "label": 2,
+      "roc_auc": 0.5,
+      "pr_auc": 0.016519823788546256,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 45
+    },
+    "class_3": {
+      "label": 3,
+      "roc_auc": 0.5,
+      "pr_auc": 0.013582966226138032,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 37
+    },
+    "class_4": {
+      "label": 4,
+      "roc_auc": 0.5,
+      "pr_auc": 0.03267254038179148,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 89
+    },
+    "class_5": {
+      "label": 5,
+      "roc_auc": 0.5,
+      "pr_auc": 0.024963289280469897,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 68
+    },
+    "class_6": {
+      "label": 6,
+      "roc_auc": 0.5,
+      "pr_auc": 0.019823788546255508,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 54
+    },
+    "class_7": {
+      "label": 7,
+      "roc_auc": 0.5,
+      "pr_auc": 0.1883259911894273,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 513
+    },
+    "class_8": {
+      "label": 8,
+      "roc_auc": 0.5,
+      "pr_auc": 0.042951541850220265,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 117
+    },
+    "class_9": {
+      "label": 9,
+      "roc_auc": 0.5,
+      "pr_auc": 0.006240822320117474,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 17
+    },
+    "class_10": {
+      "label": 10,
+      "roc_auc": 0.5,
+      "pr_auc": 0.0069750367107195305,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 19
+    },
+    "class_11": {
+      "label": 11,
+      "roc_auc": 0.5,
+      "pr_auc": 0.01908957415565345,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 52
+    },
+    "class_12": {
+      "label": 12,
+      "roc_auc": 0.5,
+      "pr_auc": 0.06938325991189427,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "threshold": Infinity,
+      "n_samples": 189
+    }
+  },
+  "summary": {
+    "total_samples": 2724,
+    "normal_samples": 1362,
+    "anomaly_samples": 1362,
+    "best_roc_auc": 0.5,
+    "best_pr_auc": 0.5,
+    "best_f1": 0.6666666666666666
+  }
+}

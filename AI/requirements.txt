@@ -1,0 +1,28 @@
+# PyTorch 및 관련 패키지
+torch>=2.0.0
+torchvision>=0.15.0
+
+# 이미지 처리
+Pillow>=9.0.0
+scikit-image>=0.19.0
+opencv-python>=4.5.0
+
+# 수치 연산 및 데이터 처리
+numpy>=1.21.0
+scipy>=1.9.0
+
+# 시각화
+matplotlib>=3.5.0
+seaborn>=0.12.2
+
+# 로깅 / TensorBoard
+tensorboard>=2.12.0
+
+# 진행 상황 표시
+tqdm>=4.64.0
+
+# 평가  
+scikit-learn>=1.2.2
+
+# CoAtNet Classification 모델
+einops>=0.3.0

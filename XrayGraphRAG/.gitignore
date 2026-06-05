@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+storage/images/*
+storage/recon/*
+storage/heatmaps/*
+!storage/images/.gitkeep
+!storage/recon/.gitkeep
+!storage/heatmaps/.gitkeep

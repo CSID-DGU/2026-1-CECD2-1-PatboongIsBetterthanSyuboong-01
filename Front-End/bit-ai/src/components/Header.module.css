@@ -1,0 +1,65 @@
+.header {
+  background: #2563eb;
+  color: white;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.date {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.rightSection {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.chatbotBtn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.chatbotBtn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.7);
+}
